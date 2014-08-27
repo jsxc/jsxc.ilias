@@ -1,0 +1,10 @@
+.project
+.settings/
+WebContent/
+node_modules
+*.zip
+*.zip.sig
+.buildpath
+.classpath
+js/ijsxc.config.js
+build/js/ijsxc.config.js
