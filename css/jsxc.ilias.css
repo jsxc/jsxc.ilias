@@ -28,13 +28,15 @@
 
 div#jsxc_roster {
 	top: 86px;
-	border-left: 1px solid #aaa;
-	box-shadow: -4px 0px #E6E7E6;
-	background-color: #E6E7E6;
+	background-color: #a0c8ed;
+	box-shadow: none;
+	border-color: #e0e0e0;
 }
 
-div#jsxc_roster .slimScrollDiv {
- 	left: -5px; 
+div#jsxc_roster > .jsxc_bottom{
+    background-color: #6796c2;
+    border-top: 1px solid white;
+    color: #fff;
 }
 
 div#jsxc_roster .jsxc_name:hover {
@@ -43,8 +45,9 @@ div#jsxc_roster .jsxc_name:hover {
 
 ul#jsxc_buddylist li {
 	border-bottom: 1px solid #aaa;
-	color: #555;
+	color: #038;
     width: auto;
+    background-color: #D0E8FF;	
 }
 
 ul#jsxc_buddylist li:hover {
@@ -121,8 +124,46 @@ div.jsxc_window .jsxc_emoticons ul {
     list-style: none;
 }
 
-div#jsxc_roster .slimScrollDiv {
-   left: 0px; 
+div.jsxc_bar {
+   background-color: #6796c2;
+   color: #fff;
+}
+
+div.jsxc_settings {
+    background-image: url('../js/jsxc/img/gear_white.svg');
+    opacity: 0.8;
+}
+
+div.jsxc_settings:hover, div.jsxc_settings.jsxc_opened {
+    opacity: 1.0;
+}
+
+div.jsxc_settings ul {
+    background-color: #6796c2;
+    color: #fff;
+}
+
+div.jsxc_transfer {
+    background-image: url('../js/jsxc/img/padlock_open_white.svg');
+    opacity: 0.8;
+}
+
+div.jsxc_transfer:hover {
+    opacity: 1.0;
+}
+
+div.jsxc_video {
+    background-image: url('../js/jsxc/img/camera_icon_white.svg');
+    opacity: 0.8;
+}
+
+div.jsxc_window .jsxc_tools .jsxc_close {
+    color: #fff;
+    opacity: 0.8;
+}
+
+div.jsxc_window .jsxc_close:hover {
+    opacity: 1.0;
 }
 
 .jsxc_spot {
@@ -159,4 +200,8 @@ div#jsxc_roster .slimScrollDiv {
 
 .jsxc_right{
 	margin: 0px;
+}
+
+#mainscrolldiv {
+	padding-right: 30px !important;
 }

@@ -43,7 +43,7 @@
 	            jid: '#username',
 	            pass: '#password'
             },
-            logoutElement: $('#logoff'),
+            logoutElement: $("[href^='logout.php']"),
             checkFlash: false,
             rosterAppend: 'body',
             root: '/ilias/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/js/jsxc',
