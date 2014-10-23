@@ -1,9 +1,9 @@
 /**
- * Rename/copy this file to sjsxc.config.js and adjust the settings.
+ * Rename/copy this file to ijsxc.config.js and adjust the settings.
  */
 
-var sjsxc = {};
-sjsxc.config = {
+var ijsxc = {};
+ijsxc.config = {
     /** enable chat by default? */
     enable: true,
     xmpp: {
