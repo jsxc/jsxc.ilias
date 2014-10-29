@@ -1,3 +1,16 @@
+/*!
+ * ijsxc v1.0.0-beta1 - 2014-10-29
+ * 
+ * Copyright (c) 2014 Klaus Herberth <klaus@jsxc.org> <br>
+ * Released under the MIT license
+ * 
+ * Please see http://jsxc.org/
+ * 
+ * @author Klaus Herberth <klaus@jsxc.org>
+ * @version 1.0.0-beta1
+ * @license MIT
+ */
+
 /* global jsxc, sjsxc, initPreferences, $, configureLinksInMessage:true, SOGoResizableTableInterface, ResourcesURL, onLoginClick, onFieldKeyDown */
 
 (function($) {

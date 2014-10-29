@@ -71,7 +71,7 @@ module.exports = function(grunt) {
       compress: {
          main: {
             options: {
-               archive: "sjsxc-<%= app.version %>.zip"
+               archive: "ijsxc-<%= app.version %>.zip"
             },
             files: [ {
                src: [ '**' ],
@@ -94,4 +94,5 @@ module.exports = function(grunt) {
    // Default task.
    grunt.registerTask('default', [ 'jshint', 'search', 'clean', 'copy', 'usebanner', 'compress' ]);
 
+   grunt.registerTask('pre', [ 'jshint', 'search:console', 'clean', 'copy', 'usebanner', 'compress' ]);
 };
