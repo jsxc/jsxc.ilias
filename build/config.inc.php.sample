@@ -1,0 +1,38 @@
+<?php
+$ijsxc_config = array (
+		debug => false,
+		xmpp => array (
+				/** url to bosh server binding. */
+				url => '/http-bind/',
+				
+				/** domain part of your jid */
+				domain => 'localhost',
+				
+				/** which resource should be used? Blank, means random. */
+				resource => '',
+				
+				/** Allow user to overwrite xmpp settings? */
+				overwrite => true,
+				
+				/** Should chat start on login? */
+				onlogin => true 
+		),
+		ice => array (
+				/** Lifetime of credentials. */
+				ttl => 60*60*12,
+				
+				/** TURN server url. */
+				url => 'numb.viagenie.ca',
+				
+				/** If no username is set, the TURN REST API is used. */
+				username => 'webrtc@live.com',
+				
+				/** If no credential is set, the TURN REST API is used. */
+				credential => 'muazkh',
+				
+				/** Secret for TURN REST API. */
+				secret => ''
+		)
+);
+
+?>

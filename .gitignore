@@ -6,5 +6,4 @@ node_modules
 *.zip.sig
 .buildpath
 .classpath
-js/ijsxc.config.js
-build/js/ijsxc.config.js
+config.inc.php

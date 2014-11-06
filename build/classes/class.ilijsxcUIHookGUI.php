@@ -7,7 +7,7 @@ require_once('./Customizing/global/plugins/Services/UIComponent/UserInterfaceHoo
  * User interface hook class
  *
  * @author Klaus Herberth <klaus@jsxc.org>
- * @version $Id$
+ * @version 1.0.0
  * @ingroup ServicesUIComponent
  */
 class ilijsxcUIHookGUI extends ilUIHookPluginGUI

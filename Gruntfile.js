@@ -20,7 +20,7 @@ module.exports = function(grunt) {
          main: {
             files: [ {
                expand: true,
-               src: [ 'js/*.js', '!js/sjsxc.config.js', 'js/lib/*.js', 'css/*', 'ajax/*', 'img/*', 'LICENSE' ],
+               src: [ 'js/*.js', '!js/sjsxc.config.js', 'js/lib/*.js', 'css/*', 'ajax/*', 'img/*', 'classes/*', 'config.inc.php.sample', 'plugin.php', 'LICENSE' ],
                dest: 'build/'
             }, {
                expand: true,
@@ -40,6 +40,16 @@ module.exports = function(grunt) {
             files: {
                src: [ 'build/js/*.js' ]
             }
+         }
+      },
+      replace: {
+         version: {
+            src: [ 'build/plugin.php', 'build/classes/*.php' ],
+            overwrite: true,
+            replacements: [ {
+               from: "$Id$",
+               to: "<%= app.version %>"
+            } ]
          }
       },
       search: {
@@ -87,12 +97,13 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-contrib-jshint');
    grunt.loadNpmTasks('grunt-contrib-copy');
    grunt.loadNpmTasks('grunt-contrib-clean');
+   grunt.loadNpmTasks('grunt-text-replace');
    grunt.loadNpmTasks('grunt-banner');
    grunt.loadNpmTasks('grunt-search');
    grunt.loadNpmTasks('grunt-contrib-compress');
 
    // Default task.
-   grunt.registerTask('default', [ 'jshint', 'search', 'clean', 'copy', 'usebanner', 'compress' ]);
+   grunt.registerTask('default', [ 'jshint', 'search', 'clean', 'copy', 'usebanner', 'replace', 'compress' ]);
 
-   grunt.registerTask('pre', [ 'jshint', 'search:console', 'clean', 'copy', 'usebanner', 'compress' ]);
+   grunt.registerTask('pre', [ 'jshint', 'search:console', 'clean', 'copy', 'usebanner', 'replace', 'compress' ]);
 };

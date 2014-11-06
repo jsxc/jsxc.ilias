@@ -1,5 +1,5 @@
 /*!
- * ijsxc v1.0.0-beta2 - 2014-10-31
+ * ijsxc v1.0.0 - 2014-11-06
  * 
  * Copyright (c) 2014 Klaus Herberth <klaus@jsxc.org> <br>
  * Released under the MIT license
@@ -7,7 +7,7 @@
  * Please see http://jsxc.org/
  * 
  * @author Klaus Herberth <klaus@jsxc.org>
- * @version 1.0.0-beta2
+ * @version 1.0.0
  * @license MIT
  */
 
@@ -35,14 +35,6 @@
 
     $(function(){
 
-        if (typeof ijsxc === 'undefined' || typeof ijsxc.config === 'undefined') {
-            jsxc.error('No config for ijsxc found! Look at ijsxc.config.sample.js.');
-            return;
-        }
-
-        var enable = JSON.parse(localStorage.getItem('ijsxc.enable'));
-        ijsxc.config.enable = (typeof enable === 'undefined' || enable === null)? ijsxc.config.enable : enable;
-
         $(document).on('ready.roster.jsxc', onRosterReady);
         $(document).on('toggle.roster.jsxc', onRosterToggle);
         
@@ -51,6 +43,7 @@
         }
 
         jsxc.init({
+            app_name: 'Ilias',
             loginForm: {
                 form: '#form_',
 	            jid: '#username',
@@ -60,31 +53,24 @@
             checkFlash: false,
             rosterAppend: 'body',
             root: '/ilias/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/js/jsxc',
-            turnCredentialsPath: './Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/ajax/getturncredentials.php',
-//            formFound: function() {
-//                var submit = pt("submit");
-//                submit.stopObserving("click", onLoginClick);
-//
-//                var userName = pt("userName");
-//                userName.stopObserving("keydown", onFieldKeyDown);
-//
-//                var passw = pt("password");
-//                passw.stopObserving("keydown", onFieldKeyDown);
-//
-//                $('#connectForm').submit(onLoginClick);
-//                $('#submit').click(function() {
-//                    $('#connectForm').submit();
-//                });
-//                $('#userName, #password').keypress(function(ev) {
-//                    if (ev.which !== 13) {
-//                        return;
-//                    }
-//
-//                    $('#connectForm').submit();
-//                });
-//            },
+            turnCredentialsPath: './Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/ajax/getTurnCredentials.php',
             loadSettings: function() {
-                return ijsxc.config;
+               var data = null;
+
+               $.ajax({
+                  async: false,
+                  type: 'POST',
+                  dataType: 'json',
+                  url: jsxc.options.root + '/../../ajax/getSettings.php',
+                  success: function(d) {
+                     data = d;
+                  },
+                  error: function() {
+                     jsxc.error('XHR error on getsettings.php');
+                  }
+               });
+
+               return data;
             }
         });
     });
