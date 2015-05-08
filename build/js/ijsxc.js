@@ -1,17 +1,17 @@
 /*!
- * ijsxc v1.0.0 - 2014-11-06
+ * ijsxc v2.0.0 - 2015-05-08
  * 
- * Copyright (c) 2014 Klaus Herberth <klaus@jsxc.org> <br>
+ * Copyright (c) 2015 Klaus Herberth <klaus@jsxc.org> <br>
  * Released under the MIT license
  * 
  * Please see http://jsxc.org/
  * 
  * @author Klaus Herberth <klaus@jsxc.org>
- * @version 1.0.0
+ * @version 2.0.0
  * @license MIT
  */
 
-/* global jsxc, sjsxc, initPreferences, $, configureLinksInMessage:true, SOGoResizableTableInterface, ResourcesURL, onLoginClick, onFieldKeyDown */
+/* global jsxc */
 
 (function($) {
 
@@ -45,9 +45,9 @@
         jsxc.init({
             app_name: 'Ilias',
             loginForm: {
-                form: '#form_',
-	            jid: '#username',
-	            pass: '#password'
+               form: '#form_',
+               jid: '#username',
+               pass: '#password'
             },
             logoutElement: $("[href^='logout.php']"),
             checkFlash: false,
@@ -71,6 +71,9 @@
                });
 
                return data;
+            },
+            displayRosterMinimized: function() {
+               return $("[href^='logout.php']").length > 0;
             }
         });
     });

@@ -7,7 +7,7 @@ require_once('./Customizing/global/plugins/Services/UIComponent/UserInterfaceHoo
  * User interface hook class
  *
  * @author Klaus Herberth <klaus@jsxc.org>
- * @version 1.0.0
+ * @version 2.0.0
  * @ingroup ServicesUIComponent
  */
 class ilijsxcUIHookGUI extends ilUIHookPluginGUI
@@ -15,45 +15,29 @@ class ilijsxcUIHookGUI extends ilUIHookPluginGUI
 
 	private $webroot = './Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/';
 	private $jsFiles = array(
-			productive => array(
+	   'development' => array(
 				'js/lib/jquery.ui.min.js',
+			   'js/jsxc/dev/lib/jquery.colorbox-min.js',
+			   'js/jsxc/dev/lib/jquery.slimscroll.js',
+			   'js/jsxc/dev/lib/jquery.fullscreen.js',
+			   'js/jsxc/dev/lib/jsxc.dep.js',
+			   'js/jsxc/dev/jsxc.js',
+			   'js/ijsxc.js'
+	   ),
+	   'productive' => array(
+	         'js/lib/jquery.ui.min.js',
 			   'js/jsxc/lib/jquery.colorbox-min.js',
 			   'js/jsxc/lib/jquery.slimscroll.js',
 			   'js/jsxc/lib/jquery.fullscreen.js',
 			   'js/jsxc/lib/jsxc.dep.min.js',
 			   'js/jsxc/jsxc.min.js',
 			   'js/ijsxc.js'
-			),
-			development => array(
-				'js/lib/jquery.ui.min.js',
-			   'js/jsxc/lib/jquery.colorbox-min.js',
-			   'js/jsxc/lib/jquery.slimscroll.js',
-			   'js/jsxc/lib/jquery.fullscreen.js',
-			   'js/jsxc/lib/strophe.js',
-			   'js/jsxc/lib/strophe.muc.js',
-			   'js/jsxc/lib/strophe.disco.js',
-			   'js/jsxc/lib/strophe.caps.js',
-			   'js/jsxc/lib/strophe.vcard.js',
-			   'js/jsxc/lib/strophe.jingle/strophe.jingle.js',
-			   'js/jsxc/lib/strophe.jingle/strophe.jingle.session.js',
-			   'js/jsxc/lib/strophe.jingle/strophe.jingle.sdp.js',
-			   'js/jsxc/lib/strophe.jingle/strophe.jingle.adapter.js',
-			   'js/jsxc/lib/otr/build/dep/salsa20.js',
-			   'js/jsxc/lib/otr/build/dep/bigint.js',
-			   'js/jsxc/lib/otr/build/dep/crypto.js',
-			   'js/jsxc/lib/otr/build/dep/eventemitter.js',
-			   'js/jsxc/lib/otr/build/otr.js',
-			   'js/jsxc/jsxc.lib.js',
-			   'js/jsxc/jsxc.lib.webrtc.js',
-			   'js/ijsxc.js'
-			)
+	   )
 	);
 	
 	private $cssFiles = array(
 			'css/jquery-ui.min.css', 
 			'css/jquery.colorbox.css', 
-			'js/jsxc/jsxc.css', 
-			'js/jsxc/jsxc.webrtc.css', 
 			'css/jsxc.ilias.css'
 	);
 	
@@ -74,7 +58,7 @@ class ilijsxcUIHookGUI extends ilUIHookPluginGUI
 	{
 		global $ilCtrl, $ilUser, $ijsxc_config;
 
-		$env = ($ijsxc_config['debug'] === true) ? 'development' : 'productive';
+		$env = ($ijsxc_config['env'] === 'dev') ? 'development' : 'productive';
 
 		if ($a_part == 'template_load' && !$ilCtrl->IsAsynch() && strtolower($a_par['tpl_id']) == 'tpl.main.html') {
 			$html = '';

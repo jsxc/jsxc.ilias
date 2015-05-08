@@ -1,6 +1,5 @@
 <?php
 $ijsxc_config = array (
-		debug => false,
 		xmpp => array (
 				/** url to bosh server binding. */
 				url => '/http-bind/',

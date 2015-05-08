@@ -7,3 +7,5 @@ node_modules
 .buildpath
 .classpath
 config.inc.php
+archives/
+css/

@@ -1,4 +1,4 @@
-/* global jsxc, sjsxc, initPreferences, $, configureLinksInMessage:true, SOGoResizableTableInterface, ResourcesURL, onLoginClick, onFieldKeyDown */
+/* global jsxc */
 
 (function($) {
 
@@ -32,9 +32,9 @@
         jsxc.init({
             app_name: 'Ilias',
             loginForm: {
-                form: '#form_',
-	            jid: '#username',
-	            pass: '#password'
+               form: '#form_',
+               jid: '#username',
+               pass: '#password'
             },
             logoutElement: $("[href^='logout.php']"),
             checkFlash: false,
@@ -58,6 +58,9 @@
                });
 
                return data;
+            },
+            displayRosterMinimized: function() {
+               return $("[href^='logout.php']").length > 0;
             }
         });
     });

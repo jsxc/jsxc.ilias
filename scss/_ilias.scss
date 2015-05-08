@@ -1,0 +1,94 @@
+div#jsxc_roster {
+   top: 86px;
+   box-shadow: none;
+   font-size: 90%;
+   input {
+      line-height: 100%;
+   }
+   .jsxc_name:hover {
+       color: #000;
+   }
+   &>.jsxc_bottom {
+      color: #fff;
+   }
+}
+
+ul#jsxc_buddylist li {
+    width: auto;
+    background-color: #D0E8FF;
+    &:hover {
+       color: #000;
+    }
+    .jsxc_control:after {
+       color: #888;
+       font-size: 17px;
+    }
+}
+
+#jsxc_windowList, #jsxc_dialog {
+    font-size: 90%;
+}
+
+.jsxc_window {
+   input.jsxc_textinput {
+      background: #fff;
+   }
+   .jsxc_emoticons ul {
+      list-style: none;
+   }
+   .jsxc_tools {
+      &>div {
+         opacity: 0.8;
+         &:hover, &.jsxc_opened {
+            opacity: 1.0;
+         }
+      }
+   }
+   .jsxc_memberlist {
+      ul {
+         padding: 0px;
+      }
+   }
+}
+
+div.jsxc_settings {
+    background-image: url('../js/jsxc/img/gear_white.svg');
+}
+
+.jsxc_windowItem.jsxc_groupchat .jsxc_members {
+    background-image: url('../js/jsxc/img/group_white.svg');
+}
+
+div.jsxc_transfer {
+    background-image: url('../js/jsxc/img/padlock_open_white.svg');
+}
+
+div.jsxc_video {
+    background-image: url('../js/jsxc/img/camera_icon_white.svg');
+}
+
+#messageContent, #mailboxContent{
+   border-right: 1px solid #fff;
+}
+
+#jsxc_dialog .button{
+   background-color: rgba(250, 250, 250, .9);
+   color: #333;
+   font-weight:bold;
+   border: 1px solid rgba(190,190,190,.9);
+   border-radius:3px;
+   height: 30px;
+   margin:.3em;
+   padding: .4em;
+   float: none;
+   background-image:none;
+   display: inline;
+}
+
+.jsxc_right{
+   margin: 0px;
+}
+
+#mainscrolldiv {
+   padding-right: 30px !important;
+}
