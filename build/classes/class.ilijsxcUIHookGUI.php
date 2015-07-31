@@ -7,7 +7,7 @@ require_once('./Customizing/global/plugins/Services/UIComponent/UserInterfaceHoo
  * User interface hook class
  *
  * @author Klaus Herberth <klaus@jsxc.org>
- * @version 2.0.0
+ * @version 2.1.0
  * @ingroup ServicesUIComponent
  */
 class ilijsxcUIHookGUI extends ilUIHookPluginGUI
@@ -17,7 +17,6 @@ class ilijsxcUIHookGUI extends ilUIHookPluginGUI
 	private $jsFiles = array(
 	   'development' => array(
 				'js/lib/jquery.ui.min.js',
-			   'js/jsxc/dev/lib/jquery.colorbox-min.js',
 			   'js/jsxc/dev/lib/jquery.slimscroll.js',
 			   'js/jsxc/dev/lib/jquery.fullscreen.js',
 			   'js/jsxc/dev/lib/jsxc.dep.js',
@@ -26,7 +25,6 @@ class ilijsxcUIHookGUI extends ilUIHookPluginGUI
 	   ),
 	   'productive' => array(
 	         'js/lib/jquery.ui.min.js',
-			   'js/jsxc/lib/jquery.colorbox-min.js',
 			   'js/jsxc/lib/jquery.slimscroll.js',
 			   'js/jsxc/lib/jquery.fullscreen.js',
 			   'js/jsxc/lib/jsxc.dep.min.js',
@@ -37,7 +35,6 @@ class ilijsxcUIHookGUI extends ilUIHookPluginGUI
 	
 	private $cssFiles = array(
 			'css/jquery-ui.min.css', 
-			'css/jquery.colorbox.css', 
 			'css/jsxc.ilias.css'
 	);
 	

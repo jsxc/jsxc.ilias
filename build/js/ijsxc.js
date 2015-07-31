@@ -1,5 +1,5 @@
 /*!
- * ijsxc v2.0.0 - 2015-05-08
+ * ijsxc v2.1.0 - 2015-07-31
  * 
  * Copyright (c) 2015 Klaus Herberth <klaus@jsxc.org> <br>
  * Released under the MIT license
@@ -7,7 +7,7 @@
  * Please see http://jsxc.org/
  * 
  * @author Klaus Herberth <klaus@jsxc.org>
- * @version 2.0.0
+ * @version 2.1.0
  * @license MIT
  */
 
@@ -53,24 +53,23 @@
             checkFlash: false,
             rosterAppend: 'body',
             root: '/ilias/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/js/jsxc',
-            turnCredentialsPath: './Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/ajax/getTurnCredentials.php',
-            loadSettings: function() {
-               var data = null;
-
+            RTCPeerConfig: {
+               url: './Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/ajax/getTurnCredentials.php'
+            },
+            loadSettings: function(username, password, cb) {
                $.ajax({
-                  async: false,
                   type: 'POST',
                   dataType: 'json',
                   url: jsxc.options.root + '/../../ajax/getSettings.php',
                   success: function(d) {
-                     data = d;
+                     cb(d);
                   },
                   error: function() {
                      jsxc.error('XHR error on getsettings.php');
+
+                     cb(false);
                   }
                });
-
-               return data;
             },
             displayRosterMinimized: function() {
                return $("[href^='logout.php']").length > 0;

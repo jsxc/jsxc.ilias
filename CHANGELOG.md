@@ -1,3 +1,8 @@
+v2.1.0 / 2015-07-31
+===
+- upgrade jsxc to v2.1.0
+- load settings async
+
 v2.0.0 / 2015-05-08
 ===
 - upgrade jsxc to v2.0.0
