@@ -40,24 +40,23 @@
             checkFlash: false,
             rosterAppend: 'body',
             root: '/ilias/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/js/jsxc',
-            turnCredentialsPath: './Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/ajax/getTurnCredentials.php',
-            loadSettings: function() {
-               var data = null;
-
+            RTCPeerConfig: {
+               url: './Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/ajax/getTurnCredentials.php'
+            },
+            loadSettings: function(username, password, cb) {
                $.ajax({
-                  async: false,
                   type: 'POST',
                   dataType: 'json',
                   url: jsxc.options.root + '/../../ajax/getSettings.php',
                   success: function(d) {
-                     data = d;
+                     cb(d);
                   },
                   error: function() {
                      jsxc.error('XHR error on getsettings.php');
+
+                     cb(false);
                   }
                });
-
-               return data;
             },
             displayRosterMinimized: function() {
                return $("[href^='logout.php']").length > 0;
