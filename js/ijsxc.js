@@ -2,30 +2,54 @@
 
 (function($) {
 
-    function onRosterToggle(event, state, duration) {
-        var wrapper = $('#fixed_content');
-
-        var roster_width = (state === 'shown') ? $('#jsxc_roster').outerWidth() : 0;
-
-        wrapper.animate({
-            right: (roster_width) + 'px'
-        }, duration);
+    function onRosterToggle(event, state) {
+      if ($(window).width() < 768) {
+         // Do not resize elements on extra small devices (bootstrap definition)
+         return;
+      }
+      
+        if (state === 'shown') {
+           $('body').addClass('jsxc_rosterVisible');
+        } else {
+           $('body').removeClass('jsxc_rosterVisible');
+        }
     }
 
     function onRosterReady() {
+      if ($('#ilTopBarNav').length > 0) {
+         var a = $('<a>');
+         a.append('<span class="glyphicons glyphicons-chat">Chat</span>');
+         a.click(function() {
+           jsxc.gui.roster.toggle();
+         });
+         
+         var li = $('<li>');
+         li.attr('id', 'jsxcShowRoster');
+         li.append(a);
+         
+         $('#ilTopBarNav > li').first().after(li);
+      }
 
-        var roster_right = parseFloat($('#jsxc_roster').css('right'));
-        var mr = (204 + ($.isNumeric(roster_right) ? roster_right : 0));
+      if ($(window).width() < 768) {
+          // Do not resize elements on extra small devices (bootstrap definition)
+          return;
+      }
 
-        $('#fixed_content').css('right', mr + 'px');
+        if ($('#jsxc_roster').hasClass('jsxc_state_hidden')) {
+           $('body').removeClass('jsxc_rosterVisible');
+        } else {
+           $('body').addClass('jsxc_rosterVisible');
+        }
     }
 
     $(function(){
-
-        $(document).on('ready.roster.jsxc', onRosterReady);
-        $(document).on('toggle.roster.jsxc', onRosterToggle);
+        $(document).on('attached.jsxc', function(){
+           $(document).one('ready.roster.jsxc', onRosterReady);
+        });
         
-        if (jsxc.storage.getItem("abort")) {
+        $(document).on('toggle.roster.jsxc', onRosterToggle);
+
+        if (typeof jsxc === 'undefined' || jsxc.storage.getItem("abort")) {
             return;
         }
 
@@ -37,7 +61,6 @@
                pass: '#password'
             },
             logoutElement: $("[href^='logout.php']"),
-            checkFlash: false,
             rosterAppend: 'body',
             root: '/ilias/Customizing/global/plugins/Services/UIComponent/UserInterfaceHook/ijsxc/js/jsxc',
             RTCPeerConfig: {

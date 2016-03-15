@@ -61,6 +61,16 @@ module.exports = function(grunt) {
                from: "$Id$",
                to: "<%= app.version %>"
             } ]
+         },
+         imageUrl: {
+            src: ['css/*.css'],
+            overwrite: true,
+            replacements: [
+               {
+                  from: /image-url\(["'](.+)["']\)/g,
+                  to: 'url(\'../js/jsxc/img/$1\')'
+               }
+            ]
          }
       },
       search: {
@@ -130,7 +140,7 @@ module.exports = function(grunt) {
         watch: {
             css: {
                 files: ['js/jsxc/scss/*', 'scss/*'],
-                tasks: ['sass', 'autoprefixer']
+                tasks: ['sass', 'replace:imageUrl', 'autoprefixer']
             }
         }
    });
@@ -151,7 +161,7 @@ module.exports = function(grunt) {
    // Default task.
    grunt.registerTask('default', [ 'build', 'watch' ]);
 
-   grunt.registerTask('build', ['jshint', 'clean:css', 'copy:css', 'sass', 'autoprefixer']);
+   grunt.registerTask('build', ['jshint', 'clean:css', 'copy:css', 'sass', 'replace:imageUrl', 'autoprefixer']);
    
    grunt.registerTask('build:prerelease', ['search:console', 'clean:build', 'build', 'copy:build', 'dataUri', 'usebanner', 'replace', 'compress']);
    

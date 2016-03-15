@@ -1,4 +1,38 @@
 div#jsxc_roster {
+   top: 40px;
+   border-left: none;
+   z-index: 1035;
+}
+
+div#ilAll, div.ilMainHeader.ilTopFixed {
+   transition: margin-right 0.5s, right 0.5s;
+}
+div#ilAll {
+   margin-right: 0;
+}
+.jsxc_rosterVisible {
+   div#ilAll {
+      margin-right: 200px;
+   }
+
+   div.ilMainHeader.ilTopFixed {
+      right: 200px;
+   }
+}
+
+#jsxcShowRoster {
+   a {
+      width:0;
+      transition: width 2s;
+      text-indent: -9999px;
+      background-size: 16px 16px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url('../img/chat-icon-white.svg');
+   }
+}
+
+/*div#jsxc_roster {
    top: 86px;
    box-shadow: none;
    font-size: 90%;
@@ -91,4 +125,4 @@ div.jsxc_video {
 
 #mainscrolldiv {
    padding-right: 30px !important;
-}
+}*/
