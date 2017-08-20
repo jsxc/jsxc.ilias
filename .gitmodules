@@ -1,3 +1,4 @@
 [submodule "js/jsxc"]
 	path = js/jsxc
-	url = https://github.com/sualko/jsxc
+	url = https://github.com/jsxc/jsxc.git
+	branch = master

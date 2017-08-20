@@ -1,9 +1,9 @@
 # JavaScript XMPP Client for ILIAS
 
-Homepage: http://www.jsxc.org
+Homepage: https://www.jsxc.org
 
-Installation guide: https://github.com/sualko/jsxc/wiki/Install-ijsxc-(Ilias)
+Installation guide: https://github.com/jsxc/jsxc/wiki/Install-ijsxc-(Ilias)
 
-Bugtracker: https://github.com/sualko/jsxc/issues
+Bugtracker: https://github.com/jsxc/jsxc/issues
 
-Wiki: https://github.com/sualko/jsxc/wiki
+Wiki: https://github.com/jsxc/jsxc/wiki
